@@ -11,7 +11,7 @@
     <tbody>
     {% for index in faithful %}
     <tr>
-        <td>{{ index.fldIndex }}</td>
+        <td><a href="/view/{{index.id}}">{{ index.fldIndex }}</a></td>
         <td>{{ index.fldEruptionLengthInMins }}</td>
         <td>{{ index.fldEruptionWaitInMins }}</td>
     </tr>

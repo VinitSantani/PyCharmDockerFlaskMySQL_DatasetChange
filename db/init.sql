@@ -2,11 +2,13 @@ CREATE DATABASE faithfulData;
 use faithfulData;
 
 CREATE TABLE IF NOT EXISTS tblFaithfulImport (
+    `id` int AUTO_INCREMENT,
     `fldIndex` INT,
     `fldEruptionLengthInMins` NUMERIC(4, 3),
-    `fldEruptionWaitInMins` INT
+    `fldEruptionWaitInMins` INT,
+    PRIMARY KEY (`id`)
 );
-INSERT INTO tblFaithfulImport VALUES
+INSERT INTO tblFaithfulImport (fldIndex, fldEruptionLengthInMins, fldEruptionWaitInMins) VALUES
     (1,3.6,79),
     (2,1.8,54),
     (3,3.333,74),
@@ -257,7 +259,7 @@ INSERT INTO tblFaithfulImport VALUES
     (248,4.367,82),
     (249,2.133,67),
     (250,4.35,74);
-INSERT INTO tblFaithfulImport VALUES
+INSERT INTO tblFaithfulImport (fldIndex, fldEruptionLengthInMins, fldEruptionWaitInMins) VALUES
     (251,2.2,54),
     (252,4.45,83),
     (253,3.567,73),
