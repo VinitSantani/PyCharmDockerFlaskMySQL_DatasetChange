@@ -99,21 +99,40 @@ def api_retrieve(index_id) -> str:
     return resp
 
 
-@app.route('/api/v1/faithful/', methods=['POST'])
-def api_add() -> str:
-    resp = Response(status=201, mimetype='application/json')
-    return resp
-
-
 @app.route('/api/v1/faithful/<int:index_id>', methods=['PUT'])
 def api_edit(index_id) -> str:
+    cursor = mysql.get_db().cursor()
+    content = request.json
+    inputData = (content['fldIndex'], content['fldEruptionLengthInMins'], content['fldEruptionWaitInMins'], index_id)
+    sql_update_query = """UPDATE tblFaithfulImport t SET t.fldIndex = %s, t.fldEruptionLengthInMins = %s, 
+    t.fldEruptionWaitInMins = %s WHERE t.id = %s """
+    cursor.execute(sql_update_query, inputData)
+    mysql.get_db().commit()
+    resp = Response(status=200, mimetype='application/json')
+    return resp
+
+
+@app.route('/api/v1/faithful', methods=['POST'])
+def api_add() -> str:
+    content = request.json
+    cursor = mysql.get_db().cursor()
+    inputData = (content['fldIndex'], content['fldEruptionLengthInMins'],
+                 request.form.get('fldEruptionWaitInMins'))
+    sql_insert_query = """INSERT INTO tblFaithfulImport (fldIndex,fldEruptionLengthInMins,fldEruptionWaitInMins) 
+    VALUES (%s, %s,%s) """
+    cursor.execute(sql_insert_query, inputData)
+    mysql.get_db().commit()
     resp = Response(status=201, mimetype='application/json')
     return resp
 
 
-@app.route('/api/faithful/<int:index_id>', methods=['DELETE'])
+@app.route('/api/v1/faithful/<int:index_id>', methods=['DELETE'])
 def api_delete(index_id) -> str:
-    resp = Response(status=210, mimetype='application/json')
+    cursor = mysql.get_db().cursor()
+    sql_delete_query = """DELETE FROM tblFaithfulImport WHERE id = %s """
+    cursor.execute(sql_delete_query, index_id)
+    mysql.get_db().commit()
+    resp = Response(status=200, mimetype='application/json')
     return resp
 
 
