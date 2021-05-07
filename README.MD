@@ -40,23 +40,24 @@ This project is a homework assignment to learn how to get PyCharm setup with Doc
 ### ii. Last record deleted:
 ![](screenshots/f.PNG)
 
-##g. The project showing postman listing all records.
+## g. The project showing postman listing all records.
 ![](screenshots/g.PNG)
 
-##h. The project showing postman showing one record with a get request.
+## h. The project showing postman showing one record with a get request.
 ![](screenshots/h.PNG)
 
-##i. The project showing postman creating a record by showing the post request and the results in the record listing. 
+## i. The project showing postman creating a record by showing the post request and the results in the record listing. 
 ![](screenshots/i.PNG)
 
 ![](screenshots/i2.PNG)
 
-##j. The project showing postman edit a record by showing the put request and the results in the record listing. 
+## j. The project showing postman edit a record by showing the put request and the results in the record listing. 
+![](screenshots/j.PNG)
+
+![](screenshots/j2.PNG)
+
+## k. The project showing postman delete a record by showing the delete request and the results in the record listing.
 ![](screenshots/k.PNG)
 
 ![](screenshots/k2.PNG)
 
-##k. The project showing postman delete a record by showing the delete request and the results in the record listing.
-![](screenshots/d3.PNG)
-
-![](screenshots/d3.PNG)
